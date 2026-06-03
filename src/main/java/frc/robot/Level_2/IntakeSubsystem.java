@@ -46,15 +46,15 @@ public class IntakeSubsystem extends SubsystemBase {
      * Use the encoder attached to the tilt motor.
      */
     public double getTiltPosition() {
-        return _____; // Fill in: Current tilt position
+        // return _____; TASK: Find a method to get the current tilt position + then uncomment the code
     }
 
     /*
      * TODO:
      * Return roller velocity.
      */
-    public double getRollerVelocity() {
-        return _____; // Fill in: Current roller velocity
+    public double getSpinVelocity() {
+        // return _____; TASK: Find a method to get the current spin motor velocity + then uncomment the code
     }
 
     /*
@@ -68,15 +68,13 @@ public class IntakeSubsystem extends SubsystemBase {
      */
     public void moveToPosition(double targetPosition) {
 
-        double output =
+        /*  double output =
                 tiltPID.calculate(
-                        _____, // Fill in: Method to get the current intake position
-                        _____  // Fill in: Desired target position input
+                    _____, TASK: Insert method to get the current intake position (Hint: You already made this method above!) + then uncomment
+                    _____  TASK: Insert target position input + then uncomment
                 );
 
-        /*
-         * TODO:
-         * Send PID output to tilt motor.
+         TODO: Write code to send the PID position output to tilt motor
          */
     }
 
@@ -88,15 +86,13 @@ public class IntakeSubsystem extends SubsystemBase {
      */
     public void runAtVelocity(double targetVelocity) {
 
-        double output =
+        /* double output =
                 rollerPID.calculate(
-                        _____, // Fill in: Current roller velocity
-                        _____  // Fill in: Desired target velocity
+                    _____, TASK: Insert method to get the current intake spin velocity (Hint: You already made this method above!) + then uncomment
+                    _____  TASK: Insert target velocity input + then uncomment
                 );
 
-        /*
-         * TODO:
-         * Send PID output to roller motor.
+        TODO: Send PID output to spin motor.
          */
     }
 
@@ -106,7 +102,7 @@ public class IntakeSubsystem extends SubsystemBase {
      * QUESTION:
      * Why do we use a tolerance instead of checking equality?
      */
-    public boolean intakeExtended() {
+    public boolean isIntakeExtended() {
 
         return Math.abs(
                 getTiltPosition()
@@ -174,4 +170,3 @@ public class IntakeSubsystem extends SubsystemBase {
      * Explain why.
      */
 }
-```

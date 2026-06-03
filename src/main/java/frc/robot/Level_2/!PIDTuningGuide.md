@@ -94,4 +94,3 @@ Reduce p slightly or increase d slightly while keeping p the same.
 4. What does P do?
 5. How do you know when P is too high?
 6. How do you know when P is too low?
-```
