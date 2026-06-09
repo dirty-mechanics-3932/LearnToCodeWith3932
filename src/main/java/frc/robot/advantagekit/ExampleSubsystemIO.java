@@ -12,10 +12,16 @@ import edu.wpi.first.units.measure.AngularVelocity;
 import edu.wpi.first.units.measure.Current;
 import edu.wpi.first.units.measure.Voltage;
 
-@AutoLog
-public class ExampleSubsystemInputs {
+public interface ExampleSubsystemIO {
+
+    @AutoLog
+    public static class ExampleSubsystemIOInputs {
     public AngularVelocity motorVelocity = RotationsPerSecond.of(0);
     public AngularAcceleration motorAcceleration = RotationsPerSecondPerSecond.of(0);
     public Voltage motorVoltage = Volts.of(0);
     public Current motorStatorCurrent = Amps.of(0);
+    }
+
+    public default void updateInputs(ExampleSubsystemIOInputs inputs) {} 
+    
 }

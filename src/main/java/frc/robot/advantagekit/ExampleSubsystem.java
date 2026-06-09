@@ -1,5 +1,7 @@
 package frc.robot.advantagekit;
 
+import org.littletonrobotics.junction.Logger;
+
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.Encoder;
@@ -10,6 +12,8 @@ public class ExampleSubsystem extends SubsystemBase {
   private final PWMSparkMax motor = new PWMSparkMax(0);
   private final Encoder encoder = new Encoder(0, 1);
   private final PIDController pid = new PIDController(0.1, 0.0, 0.0);
+  ExampleSubsystemIO io;
+  ExampleSubsystemIOInputsAutoLogged inputs = new ExampleSubsystemIOInputsAutoLogged();
 
   private double maxVelocity = 3000.0;
   private double maxAcceleration = 1000.0;
@@ -42,6 +46,8 @@ public class ExampleSubsystem extends SubsystemBase {
         currentSetpoint - maxStep,
         currentSetpoint + maxStep
     );
+    io.updateInputs(inputs);
+    Logger.processInputs("ExampleSubsystem", inputs);
 
     double output = pid.calculate(encoder.getRate(), currentSetpoint);
     motor.set(MathUtil.clamp(output, -1.0, 1.0));
